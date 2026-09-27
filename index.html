@@ -1,0 +1,730 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Pista Sport — zapatillas deportivas para correr, entrenar y moverte. Compra por WhatsApp y paga contra entrega en Colombia." />
+    <meta name="keywords" content="zapatillas deportivas, tenis deportivos, running, entrenamiento, contra entrega Colombia, Pista Sport" />
+    <meta property="og:title" content="Pista Sport — Corre más. Juega mejor." />
+    <meta property="og:description" content="Zapatillas para correr, entrenar y moverte. Pide por WhatsApp y paga contra entrega." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <title>Pista Sport — Corre más. Juega mejor.</title>
+    <script type="application/ld+json">
+      {"@context":"https://schema.org","@type":"Store","name":"Pista Sport","description":"Zapatillas deportivas con envío contra entrega en Colombia.","brand":{"@type":"Brand","name":"Pista Sport"},"areaServed":"CO","sameAs":["https://wa.me/573001112233"]}
+    </script>
+    <style>
+      :root {
+        --bg: #f7f7f4;
+        --surface: #ffffff;
+        --text: #121212;
+        --muted: #6f716e;
+        --line: #deded8;
+        --soft: #ecece5;
+        --orange: #ff5a1f;
+        --lime: #d7f04a;
+        --green: #278a5b;
+        --dark: #121212;
+        --shadow: 0 16px 44px rgba(18, 18, 18, 0.12);
+        --radius: 18px;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body {
+        margin: 0;
+        color: var(--text);
+        background: var(--bg);
+        font-family: Arial, Helvetica, sans-serif;
+        -webkit-font-smoothing: antialiased;
+      }
+      button, input, textarea, select { font: inherit; }
+      button { cursor: pointer; }
+      img { display: block; max-width: 100%; }
+      a { color: inherit; text-decoration: none; }
+
+      .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        padding: 22px 5vw 14px;
+        background: rgba(247, 247, 244, 0.92);
+        backdrop-filter: blur(18px);
+        transition: padding .25s ease, box-shadow .25s ease;
+      }
+      .site-header.scrolled {
+        padding-top: 12px;
+        box-shadow: 0 1px 0 var(--line);
+      }
+      .header-inner, .nav-links, .header-actions, .brand, .hero-actions,
+      .section-heading, .search-box, .filter-row, .cart-row, .total-row,
+      .footer-top, .footer-brand, .contact-link {
+        display: flex;
+        align-items: center;
+      }
+      .header-inner { justify-content: space-between; max-width: 1280px; margin: auto; }
+      .brand { gap: 10px; font-weight: 800; letter-spacing: .18em; }
+      .brand-mark {
+        width: 38px; height: 38px; display: grid; place-items: center;
+        color: white; background: var(--orange); border-radius: 12px;
+        font-size: 20px; letter-spacing: 0;
+      }
+      .brand-copy small { display: block; color: var(--orange); font-size: 10px; letter-spacing: .24em; margin-top: 2px; }
+      .nav-links { gap: 28px; margin-left: auto; margin-right: 30px; color: var(--muted); font-size: 13px; font-weight: 700; }
+      .nav-links a { transition: color .2s ease; }
+      .nav-links a:hover, .nav-links a.active { color: var(--orange); }
+      .header-actions { gap: 10px; }
+      .icon-button {
+        position: relative; width: 42px; height: 42px; border: 0; border-radius: 14px;
+        display: grid; place-items: center; color: var(--text); background: var(--surface);
+      }
+      .icon-button.dark { color: #fff; background: var(--dark); }
+      .icon-button.active { color: var(--orange); box-shadow: inset 0 0 0 2px var(--orange); }
+      .icon-button svg { width: 19px; height: 19px; }
+      .cart-count {
+        position: absolute; top: -5px; right: -5px; min-width: 18px; height: 18px;
+        display: grid; place-items: center; padding: 0 5px; color: var(--text);
+        background: var(--lime); border-radius: 50%; font-size: 10px; font-weight: 800;
+      }
+      .favorite-count { background: var(--orange); color: #fff; }
+
+      main { max-width: 1280px; margin: auto; padding: 0 5vw 60px; }
+      .hero {
+        position: relative; min-height: 450px; overflow: hidden; display: flex; align-items: center;
+        padding: clamp(32px, 6vw, 76px); margin-bottom: 72px; color: #fff;
+        background: linear-gradient(135deg, #121212 0%, #262b25 100%); border-radius: 30px;
+      }
+      .hero::after {
+        content: ""; position: absolute; width: 430px; height: 430px; right: -110px; bottom: -120px;
+        border: 1px solid rgba(255, 90, 31, .6); border-radius: 50%;
+      }
+      .hero-copy { position: relative; z-index: 2; width: min(520px, 62%); animation: rise .7s ease both; }
+      .eyebrow, .badge {
+        display: inline-block; padding: 7px 9px; color: var(--text); background: var(--lime);
+        border-radius: 7px; font-size: 10px; font-weight: 800; letter-spacing: .13em;
+      }
+      .hero h1 { max-width: 580px; margin: 18px 0 14px; font-size: clamp(45px, 7vw, 82px); line-height: .94; letter-spacing: -.07em; }
+      .hero p { max-width: 400px; margin: 0 0 28px; color: #c9cdc7; line-height: 1.65; }
+      .hero-image {
+        position: absolute; z-index: 1; right: -20px; bottom: -20px; width: min(47vw, 540px); height: min(47vw, 540px);
+        object-fit: cover; border-radius: 50%; transform: rotate(-10deg); border: 8px solid rgba(255,255,255,.92);
+        animation: float-in .8s .1s ease both;
+      }
+      .button {
+        border: 0; border-radius: 13px; min-height: 48px; padding: 0 18px;
+        display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+        color: var(--text); background: var(--orange); font-size: 13px; font-weight: 800;
+        transition: transform .2s ease, opacity .2s ease, box-shadow .2s ease;
+      }
+      .button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(255,90,31,.24); }
+      .button.dark { color: #fff; background: var(--dark); }
+      .button.outline { color: var(--text); background: transparent; border: 1px solid var(--line); }
+      .button.full { width: 100%; }
+      .section { margin-bottom: 70px; scroll-margin-top: 110px; }
+      .section-heading { justify-content: space-between; align-items: end; gap: 16px; margin-bottom: 18px; }
+      .kicker { margin: 0 0 6px; color: var(--orange); font-size: 11px; font-weight: 800; letter-spacing: .16em; }
+      h2 { margin: 0; font-size: clamp(28px, 4vw, 42px); letter-spacing: -.05em; }
+      .count { color: var(--muted); font-size: 12px; }
+      .search-box {
+        gap: 10px; min-height: 54px; padding: 5px 6px 5px 16px; margin-bottom: 18px;
+        border: 1px solid var(--line); border-radius: 16px; background: var(--surface);
+      }
+      .search-box svg { width: 18px; color: var(--muted); }
+      .search-box input { flex: 1; min-width: 0; border: 0; outline: 0; color: var(--text); background: transparent; font-size: 14px; }
+      .filter-toggle { height: 42px; width: 42px; display: grid; place-items: center; border: 0; border-radius: 12px; color: var(--text); background: var(--soft); }
+      .filter-toggle svg { width: 18px; }
+      .filter-row { flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
+      .filter-label { color: var(--muted); font-size: 12px; font-weight: 700; }
+      .chip {
+        min-height: 36px; padding: 0 14px; border: 1px solid var(--line); border-radius: 999px;
+        color: var(--text); background: var(--surface); font-size: 12px; font-weight: 700;
+        transition: color .2s, background .2s, border-color .2s;
+      }
+      .chip:hover, .chip.active { color: var(--text); background: var(--lime); border-color: var(--lime); }
+      .mobile-filter-panel { display: none; }
+      .product-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+      .product-card {
+        overflow: hidden; border: 1px solid var(--line); border-radius: 20px; background: var(--surface);
+        transition: transform .25s ease, box-shadow .25s ease; animation: reveal .55s ease both;
+      }
+      .product-card:hover { transform: translateY(-6px); box-shadow: var(--shadow); }
+      .product-image-wrap { position: relative; height: 245px; overflow: hidden; background: var(--soft); }
+      .product-image { width: 100%; height: 100%; object-fit: cover; transition: transform .35s ease; }
+      .product-card:hover .product-image { transform: scale(1.06); }
+      .product-card .badge { position: absolute; z-index: 1; top: 12px; left: 12px; }
+      .product-open {
+        position: absolute; right: 12px; bottom: 12px; width: 34px; height: 34px; display: grid; place-items: center;
+        border: 0; border-radius: 50%; color: var(--text); background: var(--surface);
+      }
+      .product-favorite {
+        position: absolute; z-index: 2; top: 12px; right: 12px; width: 34px; height: 34px;
+        display: grid; place-items: center; border: 0; border-radius: 50%; color: var(--text); background: var(--surface);
+      }
+      .product-favorite.active { color: var(--orange); }
+      .product-copy { padding: 15px; }
+      .product-type { margin: 0 0 5px; color: var(--muted); font-size: 10px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; }
+      .product-name { margin: 0 0 9px; font-size: 16px; }
+      .product-price { margin: 0; font-size: 15px; font-weight: 800; }
+      .story {
+        display: grid; grid-template-columns: 1fr 1.2fr; gap: 28px; align-items: end; padding: clamp(25px, 5vw, 52px);
+        border-radius: 26px; background: var(--lime);
+      }
+      .story-mark { width: 46px; height: 46px; display: grid; place-items: center; margin-bottom: 30px; color: var(--lime); background: var(--text); border-radius: 14px; }
+      .story h2 { max-width: 520px; }
+      .story-copy { max-width: 480px; margin: 0 0 28px; line-height: 1.7; opacity: .75; }
+      .story-stats { display: flex; gap: 34px; padding-top: 20px; border-top: 1px solid rgba(18,18,18,.18); }
+      .stat strong { display: block; font-size: 20px; }
+      .stat span { display: block; margin-top: 4px; font-size: 11px; opacity: .7; }
+      .contact-layout { display: grid; grid-template-columns: .8fr 1.2fr; gap: 44px; }
+      .contact-copy p { max-width: 360px; color: var(--muted); line-height: 1.7; }
+       .contact-link { gap: 10px; margin-top: 20px; font-size: 13px; font-weight: 700; }
+      .contact-link svg { color: var(--green); }
+       .whatsapp-link { gap: 7px; margin-top: 14px; color: var(--muted); font-size: 11px; font-weight: 600; }
+       .whatsapp-link svg { width: 16px; height: 16px; }
+       .location-link {
+         align-items: flex-start; gap: 13px; margin-top: 24px; padding: 18px;
+         border: 1px solid var(--line); border-radius: 17px; background: var(--surface);
+       }
+       .location-link svg { flex: 0 0 auto; width: 25px; height: 25px; margin-top: 1px; }
+       .location-link span { display: grid; gap: 6px; }
+       .location-link strong { font-size: 18px; line-height: 1.1; }
+       .location-link small { color: var(--muted); font-size: 12px; font-weight: 600; line-height: 1.4; }
+      .contact-form { display: grid; gap: 10px; }
+      .input { width: 100%; min-height: 52px; padding: 0 15px; border: 1px solid var(--line); border-radius: 14px; outline: 0; color: var(--text); background: var(--surface); }
+      textarea.input { min-height: 130px; padding-top: 15px; resize: vertical; }
+      .input:focus { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(255,90,31,.11); }
+      .success { display: none; align-items: center; gap: 8px; padding: 13px; color: var(--green); background: #e2f4e8; border-radius: 12px; font-size: 13px; font-weight: 700; }
+      .success.show { display: flex; }
+      footer { padding: 28px 5vw 34px; border-top: 1px solid var(--line); }
+      .footer-top { justify-content: space-between; max-width: 1280px; margin: auto; }
+      .footer-brand { gap: 10px; font-weight: 800; letter-spacing: .13em; font-size: 13px; }
+      .footer-note, .footer-legal { color: var(--muted); font-size: 12px; }
+      .footer-legal { max-width: 1280px; margin: 26px auto 0; font-size: 11px; }
+
+      .modal {
+        position: fixed; inset: 0; z-index: 50; display: none; align-items: end; justify-content: center;
+        padding: 20px; background: rgba(18,18,18,.52); backdrop-filter: blur(5px);
+      }
+      .modal.open { display: flex; }
+      .sheet {
+        position: relative; width: min(600px, 100%); max-height: min(90vh, 800px); overflow: auto; padding: 24px;
+        border-radius: 26px 26px 18px 18px; background: var(--bg); box-shadow: var(--shadow);
+        animation: sheet-up .25s ease both;
+      }
+      .sheet.wide { width: min(720px, 100%); }
+      .sheet-close { position: absolute; top: 18px; right: 18px; width: 38px; height: 38px; display: grid; place-items: center; border: 0; border-radius: 12px; background: var(--soft); }
+      .sheet-kicker { margin: 0 0 7px; color: var(--orange); font-size: 10px; font-weight: 800; letter-spacing: .14em; }
+      .sheet h3 { margin: 0 0 18px; font-size: 30px; letter-spacing: -.05em; }
+      .detail-image { width: 100%; height: min(42vw, 280px); min-height: 190px; object-fit: cover; margin-bottom: 17px; border-radius: 18px; }
+      .detail-type { margin: 0 0 6px; color: var(--orange); font-size: 11px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; }
+      .detail-name { margin: 0 0 6px; font-size: 27px; }
+      .detail-price { margin: 0 0 8px; font-size: 18px; font-weight: 800; }
+      .detail-description { margin: 0 0 18px; color: var(--muted); line-height: 1.6; font-size: 13px; }
+      .option-title { margin: 15px 0 9px; font-size: 13px; font-weight: 800; }
+      .option-list { display: flex; flex-wrap: wrap; gap: 8px; }
+      .color-option { width: 36px; height: 36px; padding: 4px; border: 2px solid var(--line); border-radius: 50%; background: transparent; }
+      .color-option.active { border-color: var(--orange); }
+      .color-dot { width: 100%; height: 100%; display: block; border-radius: 50%; }
+      .cart-list { display: grid; gap: 0; max-height: 45vh; overflow: auto; }
+      .cart-row { gap: 12px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+      .cart-row img { width: 72px; height: 72px; object-fit: cover; border-radius: 14px; }
+      .cart-info { flex: 1; min-width: 0; }
+      .cart-info strong { display: block; margin-bottom: 5px; font-size: 14px; }
+      .cart-info small { display: block; margin-bottom: 7px; color: var(--muted); font-size: 11px; }
+      .cart-info b { font-size: 13px; }
+      .quantity { display: flex; flex-direction: column; align-items: center; gap: 5px; }
+      .quantity button { width: 25px; height: 25px; display: grid; place-items: center; border: 0; border-radius: 8px; background: var(--soft); }
+      .quantity span { font-size: 12px; font-weight: 800; }
+      .empty-cart { padding: 35px 10px 22px; text-align: center; color: var(--muted); }
+      .empty-cart svg { width: 38px; margin-bottom: 10px; }
+      .empty-cart strong { display: block; margin-bottom: 5px; color: var(--text); }
+      .cart-footer { margin-top: 16px; padding: 14px; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); }
+      .checkout-note {
+        display: flex; align-items: center; gap: 8px; margin: 0 0 13px; padding: 11px 12px;
+        color: var(--green); background: #e2f4e8; border-radius: 12px; font-size: 12px; font-weight: 700;
+      }
+      .delivery-promise {
+        display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 15px;
+        padding: 15px 18px; margin: -45px 0 72px; color: var(--text); background: var(--lime); border-radius: 18px;
+      }
+      .delivery-promise-mark { width: 38px; height: 38px; display: grid; place-items: center; color: var(--lime); background: var(--text); border-radius: 12px; font-weight: 900; }
+      .delivery-promise strong { display: block; margin-bottom: 4px; font-size: 14px; }
+      .delivery-promise span { color: rgba(18,18,18,.68); font-size: 12px; line-height: 1.4; }
+      .delivery-promise b { font-size: 12px; white-space: nowrap; }
+      .visit-promise {
+        display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 14px;
+        padding: 17px 18px; margin: -48px 0 72px; border: 1px solid var(--line);
+        border-radius: 18px; background: var(--surface);
+      }
+      .visit-promise-mark { width: 40px; height: 40px; display: grid; place-items: center; color: var(--orange); background: var(--soft); border-radius: 12px; }
+      .visit-promise-mark svg { width: 21px; height: 21px; }
+      .visit-promise strong { display: block; margin-bottom: 4px; font-size: 14px; }
+      .visit-promise span { color: var(--muted); font-size: 12px; line-height: 1.45; }
+      .visit-promise .button { min-height: 40px; padding: 0 13px; font-size: 11px; }
+      .total-row { justify-content: space-between; margin-bottom: 13px; }
+      .total-row span { color: var(--muted); font-size: 12px; }
+      .total-row strong { font-size: 18px; }
+      .toast { position: fixed; z-index: 70; left: 50%; bottom: 28px; display: none; padding: 13px 17px; color: #fff; background: var(--dark); border-radius: 12px; transform: translateX(-50%); font-size: 13px; font-weight: 700; }
+      .toast.show { display: block; animation: toast-in .25s ease both; }
+      .checkout-summary { display: grid; gap: 8px; padding: 13px; margin-bottom: 16px; border: 1px solid var(--line); border-radius: 15px; background: var(--surface); }
+      .checkout-summary strong { font-size: 14px; }
+      .checkout-summary span { color: var(--muted); font-size: 12px; line-height: 1.5; }
+      .checkout-form { display: grid; gap: 10px; }
+      .checkout-form label { display: grid; gap: 6px; color: var(--text); font-size: 12px; font-weight: 800; }
+      .checkout-form label span { color: var(--muted); font-size: 11px; font-weight: 600; }
+      .checkout-form .input { min-height: 48px; }
+
+      @keyframes rise { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: none; } }
+      @keyframes float-in { from { opacity: 0; transform: translate(30px, 15px) rotate(-10deg) scale(.95); } to { opacity: 1; transform: rotate(-10deg); } }
+      @keyframes reveal { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: none; } }
+      @keyframes sheet-up { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: none; } }
+      @keyframes toast-in { from { opacity: 0; transform: translate(-50%, 10px); } to { opacity: 1; transform: translate(-50%, 0); } }
+
+      @media (max-width: 980px) {
+        .product-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+        .product-image-wrap { height: 210px; }
+      }
+      @media (max-width: 700px) {
+        .site-header { padding: 15px 16px 11px; }
+        main { padding: 0 16px 45px; }
+        .nav-links { display: none; }
+        .hero { min-height: 420px; margin-bottom: 54px; padding: 26px; align-items: start; }
+        .hero-copy { width: 74%; }
+        .hero h1 { font-size: 48px; }
+        .hero-image { right: -52px; bottom: 4px; width: 285px; height: 285px; }
+        .product-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+        .product-image-wrap { height: 155px; }
+        .product-copy { padding: 12px; }
+        .product-name { font-size: 14px; }
+        .story, .contact-layout { grid-template-columns: 1fr; }
+        .story { gap: 16px; }
+        .story-mark { margin-bottom: 12px; }
+        .footer-top { align-items: start; flex-direction: column; gap: 9px; }
+        .delivery-promise { grid-template-columns: auto 1fr; margin: -30px 0 54px; }
+        .delivery-promise b { grid-column: 2; }
+        .visit-promise { grid-template-columns: auto 1fr; margin: -38px 0 54px; }
+        .visit-promise .button { grid-column: 2; justify-self: start; }
+      }
+      @media (max-width: 420px) {
+        .hero h1 { font-size: 43px; }
+        .hero-image { right: -70px; width: 270px; height: 270px; }
+        .product-image-wrap { height: 135px; }
+        .product-type { font-size: 9px; }
+        .product-name, .product-price { font-size: 13px; }
+        .story-stats { gap: 18px; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="site-header" id="header">
+      <div class="header-inner">
+        <a href="#inicio" class="brand">
+          <span class="brand-mark">↗</span>
+          <span class="brand-copy">PISTA<small>SPORT</small></span>
+        </a>
+        <nav class="nav-links" aria-label="Navegación principal">
+          <a href="#inicio" class="active">Inicio</a>
+          <a href="#productos">Productos</a>
+          <a href="#contacto">Contacto</a>
+        </nav>
+        <div class="header-actions">
+          <button class="icon-button" id="searchButton" aria-label="Buscar">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+          </button>
+          <button class="icon-button" id="favoritesButton" aria-label="Ver favoritos">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.8 8.8c0 5.4-8.8 10.4-8.8 10.4S3.2 14.2 3.2 8.8A4.8 4.8 0 0 1 12 6.2a4.8 4.8 0 0 1 8.8 2.6Z"/></svg>
+            <span class="cart-count favorite-count" id="favoriteCount">0</span>
+          </button>
+          <button class="icon-button dark" id="cartButton" aria-label="Abrir carrito">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 8h12l1 12H5L6 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>
+            <span class="cart-count" id="cartCount">0</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="hero" id="inicio">
+        <div class="hero-copy">
+          <span class="eyebrow">COLECCIÓN 2026</span>
+          <h1>Corre más.<br />Juega mejor.</h1>
+          <p>Zapatillas hechas para quienes convierten cada entrenamiento en su próximo nivel.</p>
+          <div class="hero-actions">
+            <a class="button" href="#productos">Ver catálogo <span>↗</span></a>
+          </div>
+        </div>
+        <img class="hero-image" src="assets/volt-red.jpg" alt="Zapatillas deportivas Volt Rayo" />
+      </section>
+      <div class="delivery-promise" aria-label="Beneficios de compra">
+        <div class="delivery-promise-mark">✓</div>
+        <div><strong>Compra sin pago adelantado</strong><span>Verificamos tu pedido por WhatsApp y pagas cuando recibes tus zapatillas.</span></div>
+        <b>Envío contra entrega</b>
+      </div>
+      <div class="visit-promise" aria-label="Visita nuestro local">
+        <div class="visit-promise-mark">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+        </div>
+        <div><strong>Visítanos en el local</strong><span>Nike Store Andino · Carrera 11 #82-71, Bogotá</span></div>
+        <a class="button dark" href="https://www.google.com/maps/search/?api=1&query=Nike%20Store%20Andino%20Bogot%C3%A1" target="_blank" rel="noreferrer">Abrir Google Maps <span>↗</span></a>
+      </div>
+
+      <section class="section" id="productos">
+        <div class="section-heading">
+          <div><p class="kicker">SELECCIÓN PISTA</p><h2>Encuentra tu ritmo</h2></div>
+          <span class="count" id="resultCount">0 modelos</span>
+        </div>
+        <div class="search-box">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+          <input id="searchInput" type="search" placeholder="Buscar modelo o tipo" aria-label="Buscar productos" />
+          <button class="filter-toggle" id="filterToggle" aria-label="Mostrar filtros">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+          </button>
+        </div>
+        <div class="mobile-filter-panel" id="mobileFilterPanel">
+          <div class="filter-row"><span class="filter-label">Tipo:</span><div id="typeFilters"></div></div>
+          <div class="filter-row"><span class="filter-label">Talla:</span><div id="sizeFilters"></div></div>
+          <div class="filter-row"><span class="filter-label">Color:</span><div id="colorFilters"></div></div>
+          <div class="filter-row"><span class="filter-label">Precio:</span><div id="priceFilters"></div></div>
+        </div>
+        <div class="filter-row desktop-filter-row" id="desktopFilterRow"></div>
+        <div class="product-grid" id="productGrid"></div>
+      </section>
+
+      <section class="section story" id="sobre-nosotros">
+        <div>
+          <div class="story-mark">⌁</div>
+          <p class="kicker" style="color: var(--text)">SOBRE PISTA</p>
+          <h2>Tu juego empieza en el suelo.</h2>
+        </div>
+        <div>
+          <p class="story-copy">Seleccionamos siluetas con buen agarre, materiales resistentes y actitud para jugar en tu propia cancha.</p>
+          <div class="story-stats">
+            <div class="stat"><strong>4.9</strong><span>valoración</span></div>
+            <div class="stat"><strong>24h</strong><span>despacho</span></div>
+            <div class="stat"><strong>30 días</strong><span>cambios</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="contacto">
+        <div class="contact-layout">
+          <div class="contact-copy">
+            <p class="kicker">HABLEMOS</p>
+            <h2>¿Tienes una pregunta?</h2>
+            <p>Escríbenos y te ayudamos a encontrar tu próxima zapatilla.</p>
+            <a class="contact-link whatsapp-link" href="https://wa.me/573001112233" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a9.9 9.9 0 0 0-8.57 14.87L2 22l5.29-1.39A10 10 0 1 0 12 2Zm5.8 14.3c-.25.7-1.46 1.3-2 1.38-.5.08-1.14.12-1.84-.12-.42-.14-.96-.31-1.65-.61-2.9-1.25-4.8-4.18-4.95-4.37-.14-.19-1.18-1.56-1.18-2.97s.75-2.1 1.02-2.39c.25-.27.54-.34.72-.34h.52c.17 0 .39-.06.61.46.22.53.75 1.84.82 1.97.07.14.12.3.02.49-.09.19-.14.3-.27.46-.14.16-.29.36-.41.49-.14.14-.28.29-.12.56.17.27.73 1.2 1.57 1.95 1.08.96 1.99 1.26 2.27 1.4.28.14.44.12.61-.08.17-.19.7-.82.9-1.1.19-.28.38-.23.65-.14.27.1 1.68.79 1.97.93.29.14.48.21.55.33.07.12.07.73-.18 1.43Z"/></svg>
+              Escríbenos por WhatsApp
+            </a>
+            <a class="contact-link location-link" href="https://www.google.com/maps/search/?api=1&query=Nike%20Store%20Andino%20Bogot%C3%A1" target="_blank" rel="noreferrer">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              <span><strong>Nike Store Andino</strong><small>Punto de referencia · Carrera 11 #82-71, Bogotá<br />Ver ubicación en Google Maps ↗</small></span>
+            </a>
+          </div>
+          <form class="contact-form" id="contactForm">
+            <input class="input" id="contactName" type="text" placeholder="Tu nombre" required />
+            <input class="input" id="contactEmail" type="email" placeholder="Correo electrónico" required />
+            <textarea class="input" id="contactMessage" placeholder="Cuéntanos qué necesitas" required></textarea>
+            <button class="button dark" type="submit">Enviar mensaje <span>↗</span></button>
+            <div class="success" id="contactSuccess">✓ Mensaje enviado. Te responderemos pronto.</div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="footer-top">
+        <div class="footer-brand"><span class="brand-mark">↗</span><span>PISTA SPORT</span></div>
+        <span class="footer-note">Hecho para moverte.</span>
+      </div>
+      <p class="footer-legal">© 2026 Pista Sport · Todos los derechos reservados</p>
+    </footer>
+
+    <div class="toast" id="toast"></div>
+
+    <div class="modal" id="productModal" aria-hidden="true">
+      <div class="sheet">
+        <button class="sheet-close" data-close="productModal" aria-label="Cerrar">×</button>
+        <img class="detail-image" id="detailImage" alt="" />
+        <p class="detail-type" id="detailType"></p>
+        <h3 class="detail-name" id="detailName"></h3>
+        <p class="detail-price" id="detailPrice"></p>
+        <p class="detail-description" id="detailDescription"></p>
+        <p class="option-title">Talla</p>
+        <div class="option-list" id="sizeOptions"></div>
+        <p class="option-title">Color · <span id="selectedColorLabel"></span></p>
+        <div class="option-list" id="colorOptions"></div>
+        <button class="button full" id="addToCartButton" style="margin-top: 20px">Agregar al carrito <span>↗</span></button>
+      </div>
+    </div>
+
+    <div class="modal" id="cartModal" aria-hidden="true">
+      <div class="sheet wide">
+        <button class="sheet-close" data-close="cartModal" aria-label="Cerrar">×</button>
+        <p class="sheet-kicker">TU SELECCIÓN</p>
+        <h3>Carrito</h3>
+        <div class="cart-list" id="cartList"></div>
+        <div class="cart-footer" id="cartFooter"></div>
+      </div>
+    </div>
+
+    <div class="modal" id="checkoutModal" aria-hidden="true">
+      <div class="sheet wide">
+        <button class="sheet-close" data-close="checkoutModal" aria-label="Cerrar">×</button>
+        <p class="sheet-kicker">PAGA AL RECIBIR</p>
+        <h3>Datos de envío</h3>
+        <div class="checkout-summary"><strong>Tu pedido se confirma por WhatsApp.</strong><span>Completa estos datos para coordinar la entrega. No realizas ningún pago en esta página.</span></div>
+        <form class="checkout-form" id="checkoutForm">
+          <label>Nombre completo<input class="input" id="shippingName" name="name" placeholder="Ej. Laura Gómez" required /></label>
+          <label>Teléfono<input class="input" id="shippingPhone" name="phone" inputmode="tel" placeholder="Ej. 300 111 2233" required /></label>
+          <label>Dirección de entrega<input class="input" id="shippingAddress" name="address" placeholder="Calle 80 # 12-34" required /></label>
+          <label>Ciudad<input class="input" id="shippingCity" name="city" placeholder="Bogotá" required /></label>
+          <label>Notas <span>Opcional</span><textarea class="input" id="shippingNotes" name="notes" placeholder="Talla alternativa, horario de entrega…"></textarea></label>
+          <button class="button full" type="submit">Enviar pedido por WhatsApp <span>↗</span></button>
+        </form>
+      </div>
+    </div>
+
+    <script>
+      const products = [
+        { id: 'volt-red', name: 'Volt Rayo', type: 'Running', price: 129900, image: 'assets/volt-red.jpg', badge: 'Nuevo', description: 'Perfil ligero con agarre multidireccional para cambios de ritmo explosivos.', colors: [{ name: 'Rojo solar', value: '#ed3d2d' }, { name: 'Lima', value: '#d7f04a' }, { name: 'Negro', value: '#171817' }], sizes: ['36','37','38','39','40','41','42','43'] },
+        { id: 'sprint-orange', name: 'Sprint Fuego', type: 'Running', price: 119900, image: 'assets/sprint-orange.jpg', badge: 'Favorito', description: 'Respuesta rápida y ajuste firme para entrenamientos intensos.', colors: [{ name: 'Naranja', value: '#ff6417' }, { name: 'Morado', value: '#5c3b90' }, { name: 'Negro', value: '#171817' }], sizes: ['36','37','38','39','40','41','42'] },
+        { id: 'core-black-yellow', name: 'Core Eclipse', type: 'Casual', price: 99900, image: 'assets/core-black-yellow.jpg', description: 'Diseño cotidiano con suela de caucho y una pisada cómoda todo el día.', colors: [{ name: 'Amarillo', value: '#f0c52d' }, { name: 'Negro', value: '#171817' }], sizes: ['36','37','38','39','40','41','42','43','44'] },
+        { id: 'core-black-blue', name: 'Core Azul', type: 'Casual', price: 99900, image: 'assets/core-black-blue.jpg', description: 'Una base versátil con detalles de color y amortiguación para moverte sin parar.', colors: [{ name: 'Azul', value: '#4f83d1' }, { name: 'Negro', value: '#171817' }], sizes: ['36','37','38','39','40','41','42','43'] },
+        { id: 'phantom-blue', name: 'Phantom Pro', type: 'Entrenamiento', price: 149900, image: 'assets/phantom-blue.jpg', badge: 'Pro', description: 'Estructura estable y tracción agresiva para dominar cada contacto con el balón.', colors: [{ name: 'Azul eléctrico', value: '#2c6ed5' }, { name: 'Lima', value: '#d7f04a' }, { name: 'Negro', value: '#171817' }], sizes: ['38','39','40','41','42','43','44'] },
+        { id: 'stealth-gold', name: 'Stealth Oro', type: 'Entrenamiento', price: 139900, image: 'assets/stealth-gold.jpg', description: 'Toque preciso y acabado sobrio para quienes prefieren jugar con inteligencia.', colors: [{ name: 'Oro', value: '#c99836' }, { name: 'Negro', value: '#171817' }], sizes: ['38','39','40','41','42','43'] },
+        { id: 'flash-yellow', name: 'Flash Lima', type: 'Running', price: 109900, image: 'assets/flash-yellow.jpg', description: 'Ligereza y tracción para dar el primer paso antes que todos.', colors: [{ name: 'Lima', value: '#d7f04a' }, { name: 'Negro', value: '#171817' }], sizes: ['36','37','38','39','40','41','42','43'] },
+        { id: 'urban-mint', name: 'Urban Mint', type: 'Casual', price: 89900, image: 'assets/urban-mint.jpg', description: 'Comodidad diaria con una silueta fresca para moverte dentro y fuera de la cancha.', colors: [{ name: 'Menta', value: '#7ec9b1' }, { name: 'Negro', value: '#171817' }], sizes: ['36','37','38','39','40','41','42','43'] }
+      ];
+
+      const state = {
+        search: '',
+        type: 'Todos',
+        size: 'Todos',
+        color: 'Todos',
+        price: 'Todos',
+        cart: JSON.parse(localStorage.getItem('pista-sport-cart') || '[]'),
+        favorites: JSON.parse(localStorage.getItem('pista-sport-favorites') || '[]'),
+        favoritesOnly: false,
+        selected: null,
+        selectedSize: '40',
+        selectedColor: ''
+      };
+
+      const $ = (selector) => document.querySelector(selector);
+      const money = (value) => '$' + value.toLocaleString('es-CO').replace(/,/g, '.');
+      const iconArrow = '<span>↗</span>';
+
+      function saveCart() {
+        localStorage.setItem('pista-sport-cart', JSON.stringify(state.cart));
+        updateCartCount();
+      }
+
+      function saveFavorites() {
+        localStorage.setItem('pista-sport-favorites', JSON.stringify(state.favorites));
+        updateFavoritesCount();
+      }
+
+      function updateCartCount() {
+        $('#cartCount').textContent = state.cart.reduce((sum, item) => sum + item.quantity, 0);
+      }
+
+      function updateFavoritesCount() {
+        $('#favoriteCount').textContent = state.favorites.length;
+        $('#favoritesButton').classList.toggle('active', state.favoritesOnly);
+      }
+
+      function toggleFavorite(id) {
+        state.favorites = state.favorites.includes(id) ? state.favorites.filter((item) => item !== id) : [...state.favorites, id];
+        saveFavorites();
+        renderProducts();
+        showToast(state.favorites.includes(id) ? 'Guardado en favoritos' : 'Quitado de favoritos');
+      }
+
+      function filteredProducts() {
+        const query = state.search.trim().toLowerCase();
+        return products.filter((product) => {
+          const searchMatch = !query || product.name.toLowerCase().includes(query) || product.type.toLowerCase().includes(query);
+          const typeMatch = state.type === 'Todos' || product.type === state.type;
+          const sizeMatch = state.size === 'Todos' || product.sizes.includes(state.size);
+          const colorMatch = state.color === 'Todos' || product.colors.some((color) => color.name === state.color);
+          const priceMatch = state.price === 'Todos' ||
+            (state.price === 'Menos de $100k' && product.price < 100000) ||
+            (state.price === '$100k - $140k' && product.price >= 100000 && product.price <= 140000) ||
+            (state.price === 'Más de $140k' && product.price > 140000);
+          const favoriteMatch = !state.favoritesOnly || state.favorites.includes(product.id);
+          return searchMatch && typeMatch && sizeMatch && colorMatch && priceMatch && favoriteMatch;
+        });
+      }
+
+      function renderProducts() {
+        const list = filteredProducts();
+        $('#resultCount').textContent = list.length + (list.length === 1 ? ' modelo' : ' modelos');
+        $('#productGrid').innerHTML = list.length ? list.map((product, index) => `
+          <article class="product-card" style="animation-delay:${Math.min(index * 45, 260)}ms">
+            <div class="product-image-wrap">
+              ${product.badge ? `<span class="badge">${product.badge}</span>` : ''}
+              <button class="product-favorite${state.favorites.includes(product.id) ? ' active' : ''}" data-favorite="${product.id}" aria-label="${state.favorites.includes(product.id) ? 'Quitar de favoritos' : 'Guardar en favoritos'}" aria-pressed="${state.favorites.includes(product.id)}">
+                <svg viewBox="0 0 24 24" fill="${state.favorites.includes(product.id) ? 'currentColor' : 'none'}" stroke="currentColor" stroke-width="2"><path d="M20.8 8.8c0 5.4-8.8 10.4-8.8 10.4S3.2 14.2 3.2 8.8A4.8 4.8 0 0 1 12 6.2a4.8 4.8 0 0 1 8.8 2.6Z"/></svg>
+              </button>
+              <img class="product-image" src="${product.image}" alt="${product.name}" loading="lazy" />
+              <button class="product-open" data-product="${product.id}" aria-label="Ver ${product.name}">↗</button>
+            </div>
+            <div class="product-copy">
+              <p class="product-type">${product.type}</p>
+              <h3 class="product-name">${product.name}</h3>
+              <p class="product-price">${money(product.price)}</p>
+            </div>
+          </article>`).join('') : `
+          <div style="grid-column:1/-1;text-align:center;padding:55px 20px;border:1px solid var(--line);border-radius:20px;background:var(--surface)">
+            <strong>No encontramos ese modelo</strong><p style="color:var(--muted)">Prueba con otro nombre o limpia los filtros.</p>
+          </div>`;
+        document.querySelectorAll('[data-product]').forEach((button) => button.addEventListener('click', () => openProduct(button.dataset.product)));
+        document.querySelectorAll('[data-favorite]').forEach((button) => button.addEventListener('click', (event) => { event.stopPropagation(); toggleFavorite(button.dataset.favorite); }));
+      }
+
+      function chip(label, key, value) {
+        const active = state[key] === value ? ' active' : '';
+        return `<button class="chip${active}" data-filter-key="${key}" data-filter-value="${value}">${label}</button>`;
+      }
+
+      function renderFilters() {
+        const types = ['Todos', 'Running', 'Entrenamiento', 'Casual'];
+        const sizes = ['Todos', '38', '39', '40', '41', '42', '43', '44'];
+        const colors = ['Todos', 'Rojo solar', 'Naranja', 'Azul', 'Azul eléctrico', 'Lima', 'Negro', 'Oro', 'Menta'];
+        const prices = ['Todos', 'Menos de $100k', '$100k - $140k', 'Más de $140k'];
+        const groups = [
+          ['typeFilters', types, 'type'], ['sizeFilters', sizes, 'size'],
+          ['colorFilters', colors, 'color'], ['priceFilters', prices, 'price']
+        ];
+        groups.forEach(([id, values, key]) => {
+          $( '#' + id).innerHTML = values.map((value) => chip(value, key, value)).join('');
+        });
+        $('#desktopFilterRow').innerHTML = `<span class="filter-label">Filtrar:</span>${types.slice(1).map((value) => chip(value, 'type', value)).join('')}`;
+        document.querySelectorAll('[data-filter-key]').forEach((button) => button.addEventListener('click', () => {
+          state[button.dataset.filterKey] = button.dataset.filterValue;
+          renderFilters(); renderProducts();
+        }));
+      }
+
+      function openProduct(id) {
+        const product = products.find((item) => item.id === id);
+        if (!product) return;
+        state.selected = product;
+        state.selectedSize = product.sizes.includes('40') ? '40' : product.sizes[0];
+        state.selectedColor = product.colors[0].name;
+        $('#detailImage').src = product.image; $('#detailImage').alt = product.name;
+        $('#detailType').textContent = product.type; $('#detailName').textContent = product.name;
+        $('#detailPrice').textContent = money(product.price); $('#detailDescription').textContent = product.description;
+        renderProductOptions(); openModal('productModal');
+      }
+
+      function renderProductOptions() {
+        const product = state.selected;
+        $('#sizeOptions').innerHTML = product.sizes.map((size) => `<button class="chip${state.selectedSize === size ? ' active' : ''}" data-size="${size}">${size}</button>`).join('');
+        $('#colorOptions').innerHTML = product.colors.map((color) => `<button class="color-option${state.selectedColor === color.name ? ' active' : ''}" data-color="${color.name}" aria-label="${color.name}"><span class="color-dot" style="background:${color.value}"></span></button>`).join('');
+        $('#selectedColorLabel').textContent = state.selectedColor;
+        document.querySelectorAll('[data-size]').forEach((button) => button.addEventListener('click', () => { state.selectedSize = button.dataset.size; renderProductOptions(); }));
+        document.querySelectorAll('[data-color]').forEach((button) => button.addEventListener('click', () => { state.selectedColor = button.dataset.color; renderProductOptions(); }));
+      }
+
+      function addToCart() {
+        const product = state.selected;
+        const existing = state.cart.find((item) => item.productId === product.id && item.size === state.selectedSize && item.color === state.selectedColor);
+        if (existing) existing.quantity += 1;
+        else state.cart.push({ productId: product.id, size: state.selectedSize, color: state.selectedColor, quantity: 1 });
+        saveCart(); closeModal('productModal'); showToast('Producto agregado. Puedes seguir eligiendo modelos.');
+      }
+
+      function cartTotal() {
+        return state.cart.reduce((sum, item) => {
+          const product = products.find((entry) => entry.id === item.productId);
+          return sum + (product ? product.price * item.quantity : 0);
+        }, 0);
+      }
+
+      function renderCart() {
+        const list = $('#cartList');
+        if (!state.cart.length) {
+          list.innerHTML = '<div class="empty-cart"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 8h12l1 12H5L6 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg><strong>Tu carrito está vacío</strong><span>Agrega un par y aquí aparecerá tu selección.</span></div>';
+          $('#cartFooter').innerHTML = '';
+          return;
+        }
+        list.innerHTML = state.cart.map((item) => {
+          const product = products.find((entry) => entry.id === item.productId);
+          return `<div class="cart-row">
+            <img src="${product.image}" alt="${product.name}" />
+            <div class="cart-info"><strong>${product.name}</strong><small>Talla ${item.size} · ${item.color}</small><b>${money(product.price * item.quantity)}</b></div>
+            <div class="quantity"><button data-qty="${item.productId}|${item.size}|${item.color}" data-delta="-1">−</button><span>${item.quantity}</span><button data-qty="${item.productId}|${item.size}|${item.color}" data-delta="1">+</button></div>
+          </div>`;
+        }).join('');
+        $('#cartFooter').innerHTML = `<div class="checkout-note"><span>✓</span><span>Pago contra entrega. No pagas nada por adelantado.</span></div><div class="total-row"><span>Total estimado</span><strong>${money(cartTotal())}</strong></div><button class="button full" id="checkoutButton">Completar datos de envío ${iconArrow}</button><button class="button outline full" id="continueShoppingButton" style="margin-top:8px">Seguir comprando</button>`;
+        document.querySelectorAll('[data-qty]').forEach((button) => button.addEventListener('click', () => {
+          const [productId, size, color] = button.dataset.qty.split('|');
+          const item = state.cart.find((entry) => entry.productId === productId && entry.size === size && entry.color === color);
+          if (!item) return;
+          item.quantity += Number(button.dataset.delta);
+          state.cart = state.cart.filter((entry) => entry.quantity > 0);
+          saveCart(); renderCart();
+        }));
+        $('#checkoutButton').addEventListener('click', openCheckout);
+        $('#continueShoppingButton').addEventListener('click', () => { closeModal('cartModal'); $('#productos').scrollIntoView({ behavior: 'smooth' }); });
+      }
+
+      function openCart() { renderCart(); openModal('cartModal'); }
+      function openModal(id) { $('#' + id).classList.add('open'); $('#' + id).setAttribute('aria-hidden', 'false'); document.body.style.overflow = 'hidden'; }
+      function closeModal(id) { $('#' + id).classList.remove('open'); $('#' + id).setAttribute('aria-hidden', 'true'); document.body.style.overflow = ''; }
+      function openCheckout() {
+        if (!state.cart.length) return showToast('Agrega un producto antes de continuar');
+        closeModal('cartModal');
+        openModal('checkoutModal');
+        setTimeout(() => $('#shippingName').focus(), 120);
+      }
+
+      function openWhatsApp(event) {
+        event.preventDefault();
+        const form = $('#checkoutForm');
+        if (!form.reportValidity()) return;
+        const summary = state.cart.length ? state.cart.map((item) => {
+          const product = products.find((entry) => entry.id === item.productId);
+          return `- ${product.name} / talla ${item.size} / ${item.color} x${item.quantity}`;
+        }).join('\\n') : 'Hola Pista Sport, quiero conocer la colección de zapatillas.';
+        const text = state.cart.length ? `Hola Pista Sport, quiero comprar:\\n${summary}\\nTotal: ${money(cartTotal())}\\n\\nDatos de envío:\\nNombre: ${$('#shippingName').value}\\nTeléfono: ${$('#shippingPhone').value}\\nDirección: ${$('#shippingAddress').value}\\nCiudad: ${$('#shippingCity').value}${$('#shippingNotes').value.trim() ? `\\nNotas: ${$('#shippingNotes').value.trim()}` : ''}\\n\\nModalidad: pago contra entrega.` : summary;
+        window.open('https://wa.me/573001112233?text=' + encodeURIComponent(text), '_blank');
+        closeModal('checkoutModal');
+      }
+
+      function showToast(message) {
+        const toast = $('#toast'); toast.textContent = message; toast.classList.add('show');
+        setTimeout(() => toast.classList.remove('show'), 2400);
+      }
+
+      $('#searchInput').addEventListener('input', (event) => { state.search = event.target.value; renderProducts(); });
+      $('#filterToggle').addEventListener('click', () => {
+        const panel = $('#mobileFilterPanel');
+        panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+      });
+      $('#searchButton').addEventListener('click', () => { $('#productos').scrollIntoView(); setTimeout(() => $('#searchInput').focus(), 400); });
+      $('#favoritesButton').addEventListener('click', () => {
+        state.favoritesOnly = !state.favoritesOnly;
+        updateFavoritesCount();
+        $('#productos').scrollIntoView({ behavior: 'smooth' });
+        renderProducts();
+      });
+      $('#cartButton').addEventListener('click', openCart);
+      $('#addToCartButton').addEventListener('click', addToCart);
+      document.querySelectorAll('[data-close]').forEach((button) => button.addEventListener('click', () => closeModal(button.dataset.close)));
+      document.querySelectorAll('.modal').forEach((modal) => modal.addEventListener('click', (event) => { if (event.target === modal) closeModal(modal.id); }));
+      document.addEventListener('keydown', (event) => { if (event.key === 'Escape') document.querySelectorAll('.modal.open').forEach((modal) => closeModal(modal.id)); });
+      $('#contactForm').addEventListener('submit', (event) => {
+        event.preventDefault();
+        $('#contactSuccess').classList.add('show'); event.target.reset();
+        showToast('Mensaje enviado');
+      });
+      $('#checkoutForm').addEventListener('submit', openWhatsApp);
+      window.addEventListener('scroll', () => $('#header').classList.toggle('scrolled', window.scrollY > 30));
+
+      renderFilters(); renderProducts(); updateCartCount(); updateFavoritesCount();
+    </script>
+  </body>
+</html>
